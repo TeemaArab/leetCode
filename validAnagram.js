@@ -53,6 +53,7 @@ function isAnagram(s, t) {
             if(frequency < 0){
                 return false;
             }
+            map.set(char,frequency);
         }else{
             return false;
         }
