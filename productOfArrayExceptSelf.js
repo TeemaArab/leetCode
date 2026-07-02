@@ -69,3 +69,5 @@ function productExceptSelf(nums) {
  
 };
 console.log(productExceptSelf([1,2,3,6])); // [36,18,12,6]
+
+
