@@ -33,6 +33,25 @@ function characterReplacement(s, k) {
 
 
     //to iterate through the string with a sliding window approach by right pointer
+
+
+    /*
+
+
+         1. Add the incoming character.
+
+         2. Update maxFreq.
+
+         3. Calculate currentLength.
+
+         4. Calculate changesNeeded.
+
+         5. Shrink the invalid window.
+
+        6. Update maxLength.
+    */
+
+        
     for(let right = 0; right < s.length; right ++){
         let rightChar = s[right];
         if( map.has(rightChar)){
