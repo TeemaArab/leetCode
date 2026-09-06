@@ -65,35 +65,59 @@ function linkedListToArray(head){
 //****************************************** IMPORTANT *********************************** */
 
 //--------------------------------------------------------------------
-// this is the main function to find the middle node of a linked list
+// this is the main function to find the middle node of a linked list  USING TWO_PASS
 
-function middleNode(head){
+// function middleNode(head){
 
-    let current = head;
-    let count = 0;
+//     let current = head;
+//     let count = 0;
 
-    while( current !== null){
-      count ++;
-      current = current.next;
-    }
+//     while( current !== null){
+//       count ++;
+//       current = current.next;
+//     }
 
-    let middle = Math.floor(count / 2);
-    current = head;
+//     let middle = Math.floor(count / 2);
+//     current = head;
 
-    for( let i =0; i < middle; i++){
-        current = current.next;
-    }
+//     for( let i =0; i < middle; i++){
+//         current = current.next;
+//     }
 
-    return current;
-}
+//     return current;
+// }
 
 
-// Example usage:
-let head1 = arrayToLinkedList([1,2,3,4,5]);
-let middle1 = middleNode(head1);
-console.log(linkedListToArray(middle1)); // Output: [3,4,5]
+// // Example usage:
+// let head1 = arrayToLinkedList([1,2,3,4,5]);
+// let middle1 = middleNode(head1);
+// console.log(linkedListToArray(middle1)); // Output: [3,4,5]
 
 
 // ----------------------------------------------------------------
 // time complexity: O(n) where n is the number of nodes in the linked list
 //space complexity: O(1) since we are using a constant amount of space
+
+
+
+//************************************ SECOND APPROACH: TWO-POINTER (SLOW AND FAST) *********************************** */
+
+function middleNode(head){
+    let slow = head;
+    let fast = head;
+
+    // continue while fast can move two steps
+    while( fast !== null && fast.next !== null){
+        // move slow by one step
+        slow = slow.next;
+        // move fast by two steps
+        fast = fast.next.next;
+    }
+    return slow;
+}
+
+let head1 = arrayToLinkedList([1, 2, 3, 4, 5]);
+let result1 = middleNode(head1);
+
+console.log(linkedListToArray(result1));
+// Output: [3, 4, 5]
